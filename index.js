@@ -31,7 +31,7 @@ app.set('views', __dirname);
 app.get("/", function(req,res){
     console.log('Hello World'); 
     res.render('forum',{
-        postContent:"bla",
+        post:"bla",
     });
 });
 
