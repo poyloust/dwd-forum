@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js",
+    "start": "node index.js"
   },
   "author": "Xinyue Li",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mustache-express": "^1.2.8",
+    "pg": "^7.10.0"
   }
 }
