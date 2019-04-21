@@ -1,0 +1,11 @@
+{
+  "name": "forum",
+  "version": "1.0.0",
+  "description": "forum with heroku nodejs mustache and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Xinyue Li",
+  "license": "ISC"
+}
