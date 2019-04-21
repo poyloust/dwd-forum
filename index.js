@@ -12,6 +12,11 @@ var client = new Client({
     connectionString:connectionString,
     // ssl: true,
 });
+var posts;
+var allPosts;
+app.engine('html', mustacheExpress());
+app.set('view engine', 'html');
+app.set('views', __dirname);
 
 client.connect();
 
@@ -19,21 +24,22 @@ client.query('SELECT * FROM posts', function(err,res){
     if (err){
         console.log(err.stack);
     }
-    console.log(res.rows);
-
+    allPosts = res.rows;
+    console.log(allPosts);
     client.end();
-});
-//app.use(express.static('static'));
-app.engine('html', mustacheExpress());
-app.set('view engine', 'html');
-app.set('views', __dirname);
 
-app.get("/", function(req,res){
-    console.log('Hello World'); 
-    res.render('forum',{
-        post:"bla",
+    app.get("/", function(req,res){
+        console.log('Forum Loaded'); 
+        res.render('forum',{
+            "postContent":allPosts,
+            "post":function(){
+                return this.message;
+            }
+        });
     });
 });
+
+
 
 app.get('/post', function(req,res){
     console.log('new post')
