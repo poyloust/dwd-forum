@@ -51,7 +51,7 @@ app.get("/", function (req, res) {
 app.post('/update', function (req, res) {
     var newPost = req.body.textarea;
     console.log(newPost);
-    client.query("INSERT INTO posts (message) VALUES (\'" + newPost + "\')"), function (err, res) {
+    client.query("INSERT INTO posts (message) VALUES ('" + newPost + "')"), function (err, res) {
         if (err) {
             console.log(err.stack);
         }
