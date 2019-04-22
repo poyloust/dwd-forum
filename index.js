@@ -9,7 +9,7 @@ var connectionString = 'postgres://vvccboedpnfrwz:d5112736a828712297b8e2d0043629
 var app = express();
 var port = 5432 || process.env.PORT;
 var client = new Client({
-    database: postgresql-silhouetted-26173, //'posts-test',
+    database: 'postgresql-silhouetted-26173', //'posts-test',
     connectionString:connectionString,
     ssl: true,
 });
