@@ -77,7 +77,4 @@ app.post('/update', async function(req,res){
     });
 });
 
-app.listen(port, function(){
-    console.log('listening port' + port); 
-})
-
+app.listen(port);
