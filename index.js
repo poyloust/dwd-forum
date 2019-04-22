@@ -7,7 +7,7 @@ var connectionString = 'postgres://vvccboedpnfrwz:d5112736a828712297b8e2d0043629
 //process.env.DATABASE_URL;
 
 var app = express();
-var port = 3000 || process.env.PORT;
+var port = 5432 || process.env.PORT;
 var client = new Client({
     database:'posts-test',
     connectionString:connectionString,
