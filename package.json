@@ -4,7 +4,6 @@
   "description": "forum with heroku nodejs mustache and express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "author": "Xinyue Li",
@@ -12,6 +11,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "mustache-express": "^1.2.8",
-    "pg": "^7.10.0"
+    "pg": "^7.10.0",
+    "request": "^2.88.0"
   }
 }
