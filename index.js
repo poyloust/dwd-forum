@@ -3,7 +3,8 @@ var mustacheExpress = require('mustache-express');
 var request = require('request');
 const bodyParser = require('body-parser');
 var { Client } = require('pg');
-var connectionString = process.env.DATABASE_URL;
+var connectionString = 'postgres://vvccboedpnfrwz:d5112736a828712297b8e2d0043629df29fe74b590bd5b865198a70f7403b560@ec2-23-23-92-204.compute-1.amazonaws.com:5432/d2bt6ppaqap0hc';
+//process.env.DATABASE_URL;
 
 var app = express();
 var port = 3000 || process.env.PORT;
@@ -16,6 +17,7 @@ var posts;
 var allPosts;
 var myText = 'this is a new line'
 var updatedPosts;
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine('html', mustacheExpress());
@@ -64,7 +66,7 @@ app.post('/update', async function(req,res){
         updatedPosts = res.rows;
 
         console.log(updatedPosts);
-        
+
     });
 
     res.render('forum',{
