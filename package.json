@@ -8,6 +8,9 @@
   },
   "author": "Xinyue Li",
   "license": "ISC",
+  "engines":{
+      "node": "10.15.1"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "mustache-express": "^1.2.8",
