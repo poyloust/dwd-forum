@@ -11,7 +11,7 @@ var port = 3000 || process.env.PORT;
 var client = new Client({
     database:'posts-test',
     connectionString:connectionString,
-    // ssl: true,
+    ssl: true,
 });
 var posts;
 var allPosts;
