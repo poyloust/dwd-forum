@@ -15,6 +15,7 @@ var client = new Client({
 var posts;
 var allPosts;
 var myText = 'this is a new line'
+var updatedPosts;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine('html', mustacheExpress());
@@ -30,6 +31,9 @@ function updatePost(){
             console.log(err.stack);
         }
         allPosts = res.rows;
+
+        console.log(allPosts);
+        
         app.get("/", function(req,res){
             console.log('Forum Loaded'); 
             res.render('forum',{
@@ -44,36 +48,31 @@ function updatePost(){
 
 
 
-app.post('/update', function(req,res){
+app.post('/update', async function(req,res){
     var newPost = req.body.textarea;
     console.log(newPost);
     client.query("INSERT INTO posts (message) VALUES ('" + newPost+ "')"),function(err,res){
         if (err){
             console.log(err.stack);
-        }
+        }    
     }
-    updatePost();
-    console.log(allPosts);
+
+    client.query('SELECT * FROM posts', function(err,res){
+        if (err){
+            console.log(err.stack);
+        }
+        updatedPosts = res.rows;
+
+        console.log(updatedPosts);
+        
+    });
+
     res.render('forum',{
-        "postContent":allPosts,
+        "postContent":updatedPosts,
         "post":function(){
             return this.message;
         }
     });
-    // client.query('SELECT * FROM posts', function(err,res){
-    //     if (err){
-    //         console.log(err.stack);
-    //     }
-    //     allPosts = res.rows;
-    //     console.log (res.rows);
-    //     client.end();
-    // });
-    // res.render('forum',{
-    //     "postContent":allPosts,
-    //     "post":function(){
-    //         return this.message;
-    //     }
-    // });
 });
 
 app.listen(port, function(){
