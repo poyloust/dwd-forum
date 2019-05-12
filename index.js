@@ -14,11 +14,8 @@ var client = new Client({
     connectionString: connectionString,
     ssl: true,
 });
-var posts;
-var allPosts;
-var myText = 'this is a new line'
-var updatedPosts;
 
+var allPosts;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 // next 3 lines set up mustache
